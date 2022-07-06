@@ -13,7 +13,7 @@ type Props = {
   leftValue: SharedValue<number>;
 };
 
-const SENTENCE: string = "An investment in knowledge pays the best interest";
+const SENTENCE = "An investment in knowledge pays the best interest";
 
 export default function BackgroundText(props: Props) {
   const rightValue = useDerivedValue(() => {

@@ -1,13 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import CustomText from "./CustomText";
 
 import colors from "@/theme/colors";
 
 export default function Section() {
-  var test = 42;
-
   return (
     <View style={styles.page}>
       <View>
