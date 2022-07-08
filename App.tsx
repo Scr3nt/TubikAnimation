@@ -10,6 +10,7 @@ import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
 } from "react-native-reanimated";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import BackgroundText from "@/components/atoms/BackgroundText";
 import RoundImage from "@/components/molecules/RoundImage";
@@ -18,6 +19,8 @@ import AnimatedList from "@/components/molecules/AnimatedList";
 
 import colors from "@/theme/colors";
 import customFonts from "@/theme/fonts";
+
+const queryClient = new QueryClient();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -65,21 +68,23 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView} style={styles.container}>
-      <StatusBar style="auto" />
-      <BackgroundText rightValue={rightValue} leftValue={leftValue} />
-      <Animated.ScrollView
-        onScroll={scrollHandler}
-        contentContainerStyle={{ alignItems: "center", paddingVertical: 100 }}
-        showsVerticalScrollIndicator={false}
-        scrollEventThrottle={16}
-      >
-        <>
-          <AnimatedList />
-          <RoundImage children={<AnimatedText isVisible={isVisible} />} />
-        </>
-      </Animated.ScrollView>
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View onLayout={onLayoutRootView} style={styles.container}>
+        <StatusBar style="auto" />
+        <BackgroundText rightValue={rightValue} leftValue={leftValue} />
+        <Animated.ScrollView
+          onScroll={scrollHandler}
+          contentContainerStyle={{ alignItems: "center", paddingVertical: 100 }}
+          showsVerticalScrollIndicator={false}
+          scrollEventThrottle={16}
+        >
+          <>
+            <AnimatedList />
+            <RoundImage children={<AnimatedText isVisible={isVisible} />} />
+          </>
+        </Animated.ScrollView>
+      </View>
+    </QueryClientProvider>
   );
 }
 

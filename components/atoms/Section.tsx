@@ -14,6 +14,11 @@ import colors from "@/theme/colors";
 type Props = {
   isVisible: boolean;
   index: number;
+  section: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  author: string;
 };
 
 export default function Section(props: Props) {
@@ -36,23 +41,28 @@ export default function Section(props: Props) {
       opacity: withTiming(opacity.value, { duration: 500 }),
     };
   });
+
   return (
     <View style={styles.page}>
       <View>
-        <CustomText text={"SECTION 1"} type={"light"} style={styles.section} />
+        <CustomText
+          text={props?.section}
+          type={"light"}
+          style={styles.section}
+        />
         <Animated.View style={[style]}>
           <CustomText
-            text={"Podcasts for professionals"}
+            text={props?.title}
             type={"medium"}
             style={styles.title}
           />
         </Animated.View>
-        <CustomText text={"open material"} style={styles.subtitle} />
+        <CustomText text={props?.subtitle} style={styles.subtitle} />
       </View>
       <View>
-        <CustomText text={"Basic business course"} style={styles.category} />
+        <CustomText text={props?.category} style={styles.category} />
         <CustomText
-          text={"Julia_Gerasimchuk"}
+          text={props?.author}
           style={{ color: colors.grey, fontFamily: "GTWalsheim-Regular" }}
         />
       </View>
