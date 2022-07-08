@@ -8,7 +8,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useQuery } from "react-query";
 
-import SemiRoundCardContent from "@/components/atoms/SemiRoundCardContent";
+import SemiRoundCardContent from "@/components/molecules/SemiRoundCardContent";
 import SemiRoundCard from "../molecules/SemiRoundCard";
 import SemiRoundCardPlaceholder from "../atoms/SemiRoundCardPlaceholder";
 

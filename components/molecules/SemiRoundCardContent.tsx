@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-import CustomText from "./CustomText";
+import CustomText from "../atoms/CustomText";
 
 import colors from "@/theme/colors";
 

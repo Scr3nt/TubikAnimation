@@ -15,7 +15,7 @@ type Props = {
   isVisible: boolean;
 };
 
-export default function AnimatedText(props: Props) {
+export default function AnimatedOpacityText(props: Props) {
   const opacity = useSharedValue(0);
 
   useEffect(() => {

@@ -14,7 +14,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import BackgroundText from "@/components/atoms/BackgroundText";
 import RoundImage from "@/components/molecules/RoundImage";
-import AnimatedText from "@/components/atoms/AnimatedText";
+import AnimatedOpacityText from "@/components/atoms/AnimatedOpacityText";
 import AnimatedList from "@/components/organisms/AnimatedList";
 
 import colors from "@/theme/colors";
@@ -80,7 +80,9 @@ export default function App() {
         >
           <>
             <AnimatedList />
-            <RoundImage children={<AnimatedText isVisible={isVisible} />} />
+            <RoundImage
+              children={<AnimatedOpacityText isVisible={isVisible} />}
+            />
           </>
         </Animated.ScrollView>
       </View>
