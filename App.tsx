@@ -13,16 +13,14 @@ import Animated, {
 
 import BackgroundText from "@/components/atoms/BackgroundText";
 import RoundImage from "@/components/molecules/RoundImage";
-import Section from "@/components/atoms/Section";
-import SemiRoundCard from "@/components/molecules/SemiRoundCard";
 import AnimatedText from "@/components/atoms/AnimatedText";
+import AnimatedList from "@/components/molecules/AnimatedList";
 
 import colors from "@/theme/colors";
 import customFonts from "@/theme/fonts";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-
   const [isVisible, setIsVisible] = useState(false);
 
   const rightValue = useSharedValue(0);
@@ -77,12 +75,7 @@ export default function App() {
         scrollEventThrottle={16}
       >
         <>
-          <View style={{ marginBottom: 35 }}>
-            <SemiRoundCard
-              colorBottomRound={colors.darkblue}
-              children={<Section />}
-            />
-          </View>
+          <AnimatedList />
           <RoundImage children={<AnimatedText isVisible={isVisible} />} />
         </>
       </Animated.ScrollView>
