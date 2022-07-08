@@ -21,7 +21,7 @@ type Props = {
   author: string;
 };
 
-export default function Section(props: Props) {
+export default function SemiRoundCardContent(props: Props) {
   const opacity = useSharedValue(0.1);
 
   const [opacityVisible, setOpacityVisible] = useState(false);
