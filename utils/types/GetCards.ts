@@ -1,5 +1,5 @@
 export type GetCards = {
-  id: number;
+  id: string;
   section: string;
   title: string;
   subtitle: string;

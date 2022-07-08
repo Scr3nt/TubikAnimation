@@ -23,6 +23,7 @@ type Props = {
 
 export default function Section(props: Props) {
   const opacity = useSharedValue(0.1);
+
   const [opacityVisible, setOpacityVisible] = useState(false);
 
   useEffect(() => {

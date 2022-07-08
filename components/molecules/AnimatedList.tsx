@@ -1,5 +1,5 @@
-import { Dimensions, ListRenderItem, View } from "react-native";
 import React, { useState } from "react";
+import { Dimensions, ListRenderItem, View } from "react-native";
 
 import Animated, {
   useSharedValue,
@@ -10,9 +10,11 @@ import { useQuery } from "react-query";
 
 import Section from "@/components/atoms/Section";
 import SemiRoundCard from "./SemiRoundCard";
+import SemiRoundCardPlaceholder from "../atoms/SemiRoundCardPlaceholder";
 
 import API from "@/utils/API";
 import { GetCards } from "@/utils/types/GetCards";
+import { DATA_BACKUP } from "@/utils/const/global";
 
 const semiRoundCardSize = Dimensions.get("window").width - 45;
 
@@ -36,7 +38,7 @@ export default function AnimatedList() {
   });
 
   if (isLoading) {
-    return <View />;
+    return <SemiRoundCardPlaceholder />;
   }
 
   const renderItem: ListRenderItem<GetCards> = ({ item, index }) => {
@@ -61,9 +63,10 @@ export default function AnimatedList() {
       </View>
     );
   };
+
   return (
     <Animated.FlatList
-      data={datas}
+      data={datas || DATA_BACKUP}
       keyExtractor={(_, index) => index.toString()}
       horizontal
       pagingEnabled

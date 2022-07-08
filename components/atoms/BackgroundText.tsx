@@ -6,6 +6,7 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
 } from "react-native-reanimated";
+
 import CustomText from "./CustomText";
 
 type Props = {
@@ -19,6 +20,7 @@ export default function BackgroundText(props: Props) {
   const rightValue = useDerivedValue(() => {
     return props.rightValue.value;
   });
+
   const leftValue = useDerivedValue(() => {
     return props.leftValue.value;
   });

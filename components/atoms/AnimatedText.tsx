@@ -27,9 +27,11 @@ export default function AnimatedText(props: Props) {
       opacity: withTiming(opacity.value, { duration: 500 }),
     };
   });
+
   if (!props.isVisible) {
     return null;
   }
+
   return (
     <Animated.View style={[styles.text_container, style]}>
       <CustomText text={"Material"} type={"bold"} style={styles.title} />

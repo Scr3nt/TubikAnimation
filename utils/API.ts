@@ -6,6 +6,7 @@ export default class API {
     const response = await axios.get(
       "https://62c7e7bf8c90491c2ca9d3d9.mockapi.io/api/v1/card"
     );
+
     return response.data;
   }
 }
