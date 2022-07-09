@@ -31,7 +31,7 @@ export default function AnimatedList() {
 
   const flatListScrollHandler = useAnimatedScrollHandler((event) => {
     flatListScrollX.value = event.contentOffset.x;
-    // this is for rerender the props isVisible for the component SemiRoundCardContent but it's killing js performance
+    // this is for rerender the props isVisible for the component SemiRoundCardContent but it's killing js performance on simulator
     if (event.contentOffset.x >= 0) {
       runOnJS(toggleSemiRoundCardContentOpacity)(event.contentOffset.x);
     }
