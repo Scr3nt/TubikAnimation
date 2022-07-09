@@ -9,6 +9,7 @@ import {
 import { useQuery } from "react-query";
 
 import AnimatedList from "../atoms/AnimatedList";
+import CardPlaceholder from "../atoms/CardPlaceholder";
 
 import Card from "../molecules/Card";
 
@@ -45,7 +46,7 @@ export default function CardList(props: Props) {
   });
 
   if (isLoading) {
-    return null;
+    return <CardPlaceholder />;
   }
 
   const renderItem: ListRenderItem<GetPopularCourses> = ({ item, index }) => {
