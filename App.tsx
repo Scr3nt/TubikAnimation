@@ -24,10 +24,11 @@ const queryClient = new QueryClient();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [animatedOpacityTextIsVisible, setAnimatedOpacityTextIsVisible] =
+    useState(false);
 
-  const rightValue = useSharedValue(0);
-  const leftValue = useSharedValue(0);
+  const backgroundTextScrollXRight = useSharedValue(0);
+  const backgroundTextScrollXLeft = useSharedValue(0);
 
   useEffect(() => {
     const prepare = async () => {
@@ -51,12 +52,12 @@ export default function App() {
   }, [appIsReady]);
 
   const toggleTextVisible = (status: boolean) => {
-    setIsVisible(status);
+    setAnimatedOpacityTextIsVisible(status);
   };
 
   const scrollHandler = useAnimatedScrollHandler((event) => {
-    rightValue.value = event.contentOffset.y;
-    leftValue.value = -event.contentOffset.y;
+    backgroundTextScrollXRight.value = event.contentOffset.y;
+    backgroundTextScrollXLeft.value = -event.contentOffset.y;
 
     if (event.contentOffset.y >= 150) {
       runOnJS(toggleTextVisible)(true);
@@ -71,7 +72,10 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <View onLayout={onLayoutRootView} style={styles.container}>
         <StatusBar style="auto" />
-        <BackgroundText rightValue={rightValue} leftValue={leftValue} />
+        <BackgroundText
+          scrollXRight={backgroundTextScrollXRight}
+          scrollXLeft={backgroundTextScrollXLeft}
+        />
         <Animated.ScrollView
           onScroll={scrollHandler}
           contentContainerStyle={{ alignItems: "center", paddingVertical: 100 }}
@@ -81,7 +85,9 @@ export default function App() {
           <>
             <AnimatedList />
             <RoundImage
-              children={<AnimatedOpacityText isVisible={isVisible} />}
+              children={
+                <AnimatedOpacityText isVisible={animatedOpacityTextIsVisible} />
+              }
             />
           </>
         </Animated.ScrollView>

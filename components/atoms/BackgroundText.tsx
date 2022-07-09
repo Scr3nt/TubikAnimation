@@ -10,26 +10,26 @@ import Animated, {
 import CustomText from "./CustomText";
 
 type Props = {
-  rightValue: SharedValue<number>;
-  leftValue: SharedValue<number>;
+  scrollXRight: SharedValue<number>;
+  scrollXLeft: SharedValue<number>;
 };
 
 const SENTENCE = "An investment in knowledge pays the best interest";
 
 export default function BackgroundText(props: Props) {
-  const rightValue = useDerivedValue(() => {
-    return props.rightValue.value;
+  const scrollXRight = useDerivedValue(() => {
+    return props.scrollXRight.value;
   });
 
-  const leftValue = useDerivedValue(() => {
-    return props.leftValue.value;
+  const scrollXLeft = useDerivedValue(() => {
+    return props.scrollXLeft.value;
   });
 
   const styleTextToRight = useAnimatedStyle(() => {
     return {
       transform: [
         {
-          translateX: rightValue.value,
+          translateX: scrollXRight.value,
         },
       ],
     };
@@ -39,7 +39,7 @@ export default function BackgroundText(props: Props) {
     return {
       transform: [
         {
-          translateX: leftValue.value,
+          translateX: scrollXLeft.value,
         },
       ],
     };
