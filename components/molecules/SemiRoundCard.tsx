@@ -8,7 +8,7 @@ type Props = {
 
 const SIZE = Dimensions.get("screen").width - 60;
 
-export default function Card(props: Props) {
+export default function SemiRoundCard(props: Props) {
   return (
     <>
       <View style={styles.container}>
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
   },
   content_container_top: {

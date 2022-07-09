@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-} from "react-native-reanimated";
-
 import CustomText from "../atoms/CustomText";
+import AnimatedOpacityText from "../atoms/AnimatedOpacityText";
 
 import colors from "@/theme/colors";
 
 type Props = {
   isVisible: boolean;
-  index: number;
   section: string;
   title: string;
   subtitle: string;
@@ -22,26 +16,11 @@ type Props = {
 };
 
 export default function SemiRoundCardContent(props: Props) {
-  const opacity = useSharedValue(0.1);
-
-  const [opacityVisible, setOpacityVisible] = useState(false);
-
-  useEffect(() => {
-    if (props.isVisible) {
-      setOpacityVisible(true);
-      opacity.value = 1;
-    } else if (opacityVisible) {
-      opacity.value = 1;
-    } else {
-      opacity.value = 0.1;
-    }
-  }, [props.isVisible]);
-
-  const style = useAnimatedStyle(() => {
-    return {
-      opacity: withTiming(opacity.value, { duration: 500 }),
-    };
-  });
+  const textToAnimate = () => {
+    return (
+      <CustomText text={props?.title} type={"medium"} style={styles.title} />
+    );
+  };
 
   return (
     <View style={styles.page}>
@@ -51,13 +30,11 @@ export default function SemiRoundCardContent(props: Props) {
           type={"light"}
           style={styles.section}
         />
-        <Animated.View style={[style]}>
-          <CustomText
-            text={props?.title}
-            type={"medium"}
-            style={styles.title}
-          />
-        </Animated.View>
+        <AnimatedOpacityText
+          isVisible={props?.isVisible}
+          opacityDefault={0.1}
+          children={textToAnimate()}
+        />
         <CustomText text={props?.subtitle} style={styles.subtitle} />
       </View>
       <View>

@@ -14,7 +14,8 @@ type Props = {
   scrollXLeft: SharedValue<number>;
 };
 
-const SENTENCE = "An investment in knowledge pays the best interest";
+const SENTENCE =
+  "An investment in knowledge pays the best interest An investment in knowledge pays the best interest An investment in knowledge pays the best interest";
 
 export default function BackgroundText(props: Props) {
   const scrollXRight = useDerivedValue(() => {
@@ -48,22 +49,52 @@ export default function BackgroundText(props: Props) {
   return (
     <View style={styles.container}>
       <Animated.View style={[styleTextToRight]}>
-        <CustomText text={SENTENCE} type={"medium"} style={styles.text} />
+        <CustomText
+          numberOfLines={1}
+          text={SENTENCE}
+          type={"medium"}
+          style={styles.text}
+        />
       </Animated.View>
       <Animated.View style={[styleTextToLeft]}>
-        <CustomText text={SENTENCE} type={"medium"} style={styles.text} />
+        <CustomText
+          numberOfLines={1}
+          text={SENTENCE}
+          type={"medium"}
+          style={styles.text}
+        />
       </Animated.View>
       <Animated.View style={[styleTextToRight]}>
-        <CustomText text={SENTENCE} type={"medium"} style={styles.text} />
+        <CustomText
+          numberOfLines={1}
+          text={SENTENCE}
+          type={"medium"}
+          style={styles.text}
+        />
       </Animated.View>
       <Animated.View style={[styleTextToLeft]}>
-        <CustomText text={SENTENCE} type={"medium"} style={styles.text} />
+        <CustomText
+          numberOfLines={1}
+          text={SENTENCE}
+          type={"medium"}
+          style={styles.text}
+        />
       </Animated.View>
       <Animated.View style={[styleTextToRight]}>
-        <CustomText text={SENTENCE} type={"medium"} style={styles.text} />
+        <CustomText
+          numberOfLines={1}
+          text={SENTENCE}
+          type={"medium"}
+          style={styles.text}
+        />
       </Animated.View>
       <Animated.View style={[styleTextToLeft]}>
-        <CustomText text={SENTENCE} type={"medium"} style={styles.text} />
+        <CustomText
+          numberOfLines={1}
+          text={SENTENCE}
+          type={"medium"}
+          style={styles.text}
+        />
       </Animated.View>
     </View>
   );
@@ -74,7 +105,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: -60,
     zIndex: -100,
-    width: 2000,
+    width: "1000%",
     alignSelf: "center",
     transform: [{ rotate: "-30deg" }],
   },

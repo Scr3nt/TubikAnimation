@@ -1,8 +1,9 @@
 import colors from "@/theme/colors";
 import { GetCards } from "../types/GetCards";
+import { GetPopularCourses } from "../types/GetPopularCourses";
 
 //for testing if problem with the API
-export const DATA_BACKUP: GetCards[] = [
+export const CARDS_DATA_BACKUP: GetCards[] = [
   {
     section: "SECTION 1",
     title: "Podcasts for professionals",
@@ -29,5 +30,22 @@ export const DATA_BACKUP: GetCards[] = [
     author: "Julia_Gerasimchuk",
     roundCardColor: colors.blue,
     id: "3",
+  },
+];
+
+export const POPULAR_COURSES_DATA_BACKUP: GetPopularCourses[] = [
+  {
+    section: "POPULAR COURSES",
+    title: "Choice of your friends",
+    number: "43",
+    number_description: "items",
+    id: "1",
+  },
+  {
+    section: "POPULAR COURSES",
+    title: "Choice of the community",
+    number: "77",
+    number_description: "items",
+    id: "2",
   },
 ];

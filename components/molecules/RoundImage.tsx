@@ -17,7 +17,7 @@ export default function RoundImage(props: Props) {
           style={styles.image}
           resizeMode="cover"
         />
-        {props?.children}
+        <View style={styles.children_container}>{props?.children}</View>
       </View>
     </>
   );
@@ -30,11 +30,17 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").width - 60,
     alignSelf: "center",
     backgroundColor: "black",
+    marginBottom: 35,
   },
   image: {
     width: Dimensions.get("screen").width - 60,
     height: Dimensions.get("screen").width - 60,
     borderRadius: 200,
     alignSelf: "center",
+  },
+  children_container: {
+    position: "absolute",
+    left: 15,
+    bottom: 110,
   },
 });

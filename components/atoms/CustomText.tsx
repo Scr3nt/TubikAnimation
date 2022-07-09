@@ -14,6 +14,7 @@ type Props = {
   text: string;
   type?: TextWeight;
   style: TextStyle;
+  numberOfLines?: number;
 };
 
 export default function CustomText(props: Props) {
@@ -40,7 +41,10 @@ export default function CustomText(props: Props) {
 
   return (
     <View>
-      <Text style={[props.style, { fontFamily: fontFamily() }]}>
+      <Text
+        numberOfLines={props?.numberOfLines}
+        style={[props.style, { fontFamily: fontFamily() }]}
+      >
         {props.text}
       </Text>
     </View>

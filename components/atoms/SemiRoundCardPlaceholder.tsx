@@ -16,6 +16,7 @@ export default function SemiRoundCardPlaceholder() {
       </View>
     );
   };
+
   return (
     <FlatList
       data={[1, 2, 3]}

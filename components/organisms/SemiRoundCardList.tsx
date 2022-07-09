@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 import { Dimensions, ListRenderItem, View } from "react-native";
 
-import Animated, {
+import {
   useSharedValue,
   useAnimatedScrollHandler,
   runOnJS,
 } from "react-native-reanimated";
 import { useQuery } from "react-query";
 
-import SemiRoundCardContent from "@/components/molecules/SemiRoundCardContent";
-import SemiRoundCard from "../molecules/SemiRoundCard";
 import SemiRoundCardPlaceholder from "../atoms/SemiRoundCardPlaceholder";
+import AnimatedList from "../atoms/AnimatedList";
+
+import SemiRoundCardContent from "../molecules/SemiRoundCardContent";
+import SemiRoundCard from "../molecules/SemiRoundCard";
 
 import API from "@/utils/API";
 import { GetCards } from "@/utils/types/GetCards";
-import { DATA_BACKUP } from "@/utils/const/global";
+import { CARDS_DATA_BACKUP } from "@/utils/const/global";
 
 const semiRoundCardSize = Dimensions.get("window").width - 45;
 
-export default function AnimatedList() {
-  const { data: datas, isLoading } = useQuery(["data"], API.getCards);
+export default function SemiRoundCardList() {
+  const { data: datas, isLoading } = useQuery(["cards"], API.getCards);
 
   const [, setContentOffsetX] = useState(0);
 
@@ -51,7 +53,6 @@ export default function AnimatedList() {
               isVisible={
                 semiRoundCardSize * index - 45 <= flatListScrollX.value
               }
-              index={index}
               section={item.section}
               title={item.title}
               subtitle={item.subtitle}
@@ -65,21 +66,12 @@ export default function AnimatedList() {
   };
 
   return (
-    <Animated.FlatList
-      data={datas || DATA_BACKUP}
-      keyExtractor={(_, index) => index.toString()}
-      horizontal
-      pagingEnabled
-      snapToOffsets={[0, Dimensions.get("window").width - 45]}
-      snapToAlignment="center"
-      decelerationRate={"fast"}
-      scrollEventThrottle={16}
-      onScroll={flatListScrollHandler}
+    <AnimatedList
+      data={datas || CARDS_DATA_BACKUP}
       renderItem={renderItem}
-      showsHorizontalScrollIndicator={false}
+      snapToOffsets={[0, Dimensions.get("screen").width - 45]}
+      onScroll={flatListScrollHandler}
       contentContainerStyle={{ marginBottom: 35 }}
-      ListHeaderComponent={<View style={{ marginLeft: 15 }} />}
-      ListFooterComponent={<View style={{ marginRight: 30 }} />}
     />
   );
 }
