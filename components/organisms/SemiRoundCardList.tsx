@@ -16,7 +16,7 @@ import SemiRoundCard from "../molecules/SemiRoundCard";
 
 import API from "@/utils/API";
 import { GetCards } from "@/utils/types/GetCards";
-import { CARDS_DATA_BACKUP } from "@/utils/const/global";
+import { CARDS_DATA_BACKUP } from "@/utils/constants/global";
 
 const semiRoundCardSize = Dimensions.get("window").width - 45;
 

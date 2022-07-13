@@ -5,8 +5,9 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
 import { QueryClient, QueryClientProvider } from "react-query";
+import { NavigationContainer } from "@react-navigation/native";
 
-import HomeScreen from "./containers/HomeScreen";
+import BottomTab from "./containers/BottomTab";
 
 import customFonts from "@/theme/fonts";
 
@@ -42,9 +43,11 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <View onLayout={onLayoutRootView} style={styles.container}>
-        <HomeScreen />
-      </View>
+      <NavigationContainer>
+        <View onLayout={onLayoutRootView} style={styles.container}>
+          <BottomTab />
+        </View>
+      </NavigationContainer>
     </QueryClientProvider>
   );
 }

@@ -15,7 +15,7 @@ import Card from "../molecules/Card";
 
 import API from "@/utils/API";
 import { GetPopularCourses } from "@/utils/types/GetPopularCourses";
-import { POPULAR_COURSES_DATA_BACKUP } from "@/utils/const/global";
+import { POPULAR_COURSES_DATA_BACKUP } from "@/utils/constants/global";
 
 type Props = {
   isVisible: boolean;
