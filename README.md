@@ -4,6 +4,8 @@ I wanted to redo this animation in React Native: https://dribbble.com/shots/1831
 
 Here is the result : https://streamable.com/tdf8hx
 
+You can either test on the Expo Go application directly on your phone or you can launch it on your Android or iOS simulator
+
 To test, first do :
 
 `npm install`
