@@ -50,8 +50,9 @@
     "@types/react": "^17"
   },
   "lint-staged": {
-    "./": [
-      "eslint ."
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
     ]
   },
   "husky": {
