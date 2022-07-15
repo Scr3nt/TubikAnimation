@@ -34,7 +34,6 @@ export default function MenuScreen() {
     setStatusBarStyle("light");
   });
 
-  const test = "t";
   return (
     <View style={styles.page}>
       <Animated.View style={[styles.container, style]}>
