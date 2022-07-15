@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
-import { StatusBar } from "expo-status-bar";
+import { setStatusBarStyle } from "expo-status-bar";
 
 import Animated, {
   runOnJS,
   useAnimatedScrollHandler,
   useSharedValue,
 } from "react-native-reanimated";
+import { useFocusEffect } from "@react-navigation/native";
 
 import BackgroundText from "@/components/atoms/BackgroundText";
 import AnimatedOpacityText from "@/components/atoms/AnimatedOpacityText";
@@ -30,6 +31,10 @@ export default function HomeScreen() {
 
   const backgroundTextScrollXRight = useSharedValue(0);
   const backgroundTextScrollXLeft = useSharedValue(0);
+
+  useFocusEffect(() => {
+    setStatusBarStyle("dark");
+  });
 
   const toggleTextVisible = (
     status: boolean,
@@ -73,7 +78,6 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
       <BackgroundText
         scrollXRight={backgroundTextScrollXRight}
         scrollXLeft={backgroundTextScrollXLeft}
