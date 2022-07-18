@@ -1,7 +1,12 @@
 # TubikAnimation
 
 I wanted to redo this animation in React Native: https://dribbble.com/shots/18311680-Education-App-Interactions
-From : tubikstudio.com dribbble.com/tubik
+
+From : 
+
+tubikstudio.com
+
+dribbble.com/tubik
 
 Here is the result : https://streamable.com/tdf8hx
 
